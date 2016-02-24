@@ -83,7 +83,8 @@ print(filter(lambda x: x in fuck, flag))
 Output:
 
 ```bash
-0:03:45 notfound@OTP WACHE sage cry60.py
+notfound@OTP:/home/notfound/CTF/2016/WACHE/CRYTO/CRY60
+>>> sage cry60.py
 [+] All keypub has been imported
 [+] All public exponent has been imported
 [+] All modulus has been imported
