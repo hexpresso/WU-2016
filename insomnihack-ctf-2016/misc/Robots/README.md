@@ -24,6 +24,10 @@ So, after some analysis, the vulnerables part of this script is at line 21 and 5
 ```
 r to read a file, c to play again, q to quit
 #.(ext:run-program "find")
+```
+
+output :
+```
 .
 ./getflag
 ./getflag/flag
