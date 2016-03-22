@@ -30,8 +30,6 @@ We can see that the frame number 18 is a `Heartbeat Request[Malformed Packet]` :
 ```bash
 >>> tshark -r attack_log.pcap -Y frame.number==18 
  18   0.044628 192.168.105.1 -> 192.168.105.160 TLSv1 74 Heartbeat Request[Malformed Packet]
- [ notfound @ greenwich:~/CTF/2016/INSOM | 0 : !1232 - 1jobs, 0tmux, +3shlvl ]
- [ /dev/pts/3 - 21:16:50 ]
 
 >>> tshark -r attack_log.pcap -Y frame.number==18 -x
  0000  00 0c 29 7c 33 4f 00 50 56 c0 00 08 08 00 45 00   ..)|3O.PV.....E.
