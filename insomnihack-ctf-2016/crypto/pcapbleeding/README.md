@@ -98,7 +98,10 @@ Well, a 2048 bit modulus. Not the time to try a factorisation, and it will be st
 I knew the amazing `heartleech` by Robert David Graham [https://github.com/robertdavidgraham/heartleech]; so let's use it.
 
 ```bash
->>> /home/notfound/TOOLS/heartleech/heartleech --read attack_log.pcap --cert hb_scrt_ch.crt > privkey.pem && tshark -o "ssl.keys_list:192.168.105.160,443,http,privkey.pem" -r pcap_flag.pcapng -Y frame.number==15 -x
+>>> /home/notfound/TOOLS/heartleech/heartleech \
+        --read attack_log.pcap \
+        --cert hb_scrt_ch.crt > privkey.pem \
+        && tshark -o "ssl.keys_list:192.168.105.160,443,http,privkey.pem" -r pcap_flag.pcapng -Y frame.number==15 -x
 
 Reassembled SSL (312 bytes):
 0000  48 54 54 50 2f 31 2e 31 20 32 30 30 20 4f 4b 0d   HTTP/1.1 200 OK.
