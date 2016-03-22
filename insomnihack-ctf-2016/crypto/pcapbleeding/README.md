@@ -29,14 +29,14 @@ We can see that the frame number 18 is a `Heartbeat Request[Malformed Packet]` :
 
 ```bash
 >>> tshark -r attack_log.pcap -Y frame.number==18 
- 18   0.044628 192.168.105.1 -> 192.168.105.160 TLSv1 74 Heartbeat Request[Malformed Packet]
+18   0.044628 192.168.105.1 -> 192.168.105.160 TLSv1 74 Heartbeat Request[Malformed Packet]
 
 >>> tshark -r attack_log.pcap -Y frame.number==18 -x
- 0000  00 0c 29 7c 33 4f 00 50 56 c0 00 08 08 00 45 00   ..)|3O.PV.....E.
- 0010  00 3c 89 26 40 00 40 06 5d a3 c0 a8 69 01 c0 a8   .<.&@.@.]...i...
- 0020  69 a0 9e 7c 01 bb 3c 41 a2 9a 45 f7 6e 2b 80 18   i..|..<A..E.n+..
- 0030  00 fb 1b 11 00 00 01 01 08 0a 00 74 28 e2 00 06   ...........t(...
- 0040  8e 18 18 03 01 00 03 01 ff ff                     ..........
+0000  00 0c 29 7c 33 4f 00 50 56 c0 00 08 08 00 45 00   ..)|3O.PV.....E.
+0010  00 3c 89 26 40 00 40 06 5d a3 c0 a8 69 01 c0 a8   .<.&@.@.]...i...
+0020  69 a0 9e 7c 01 bb 3c 41 a2 9a 45 f7 6e 2b 80 18   i..|..<A..E.n+..
+0030  00 fb 1b 11 00 00 01 01 08 0a 00 74 28 e2 00 06   ...........t(...
+0040  8e 18 18 03 01 00 03 01 ff ff                     ..........
 ```
 
 Moreover, you can use the `Heartbleed BPF expression` ( source [http://www.riverbed.com/blogs/Retroactively-detecting-a-prior-Heartbleed-exploitation-from-stored-packets-using-a-BPF-expression.html] ) :
