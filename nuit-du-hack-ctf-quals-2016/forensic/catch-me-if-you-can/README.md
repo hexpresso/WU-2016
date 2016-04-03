@@ -65,7 +65,7 @@ the file based on knowledge of the format:
 
 https://en.wikipedia.org/wiki/Zip_%28file_format%29#Structure
 
-I spot two sets of file offsets, allowing a first grouping of the
+I spot two range of offsets in the `PK^A^B...` file entry headers, allowing a first grouping of the
 chunks.  I then spend (too) much time trying to manually reorder the chunks,
 since I didn't find the ordering key.  Eventually I figure out that
 chunks are actually in order... just one of each file alternatively:
