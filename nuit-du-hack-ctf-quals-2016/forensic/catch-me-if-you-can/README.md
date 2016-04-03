@@ -61,7 +61,7 @@ $ for i in test???; do (cat $i; echo; echo) >> test.all; done
 
 OK, there are 2 chunks starting with `PK^C^D`, so let's assume there
 are actually TWO zip files in here.  The goal must be to reassemble
-the file based on knowledge of the format:
+the files based on knowledge of the format:
 
 https://en.wikipedia.org/wiki/Zip_%28file_format%29#Structure
 
