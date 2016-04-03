@@ -4,15 +4,8 @@
 
 > Description : We managed to infect the computer of a target. We recorded all packets transferred over the USB port, but there is something unusual. We need them to be sorted to get the juicy secret.
 
-Attachments
-<table>
-<tr><td>Filename</td><td>Size</td><td>Hash (SHA-256)</td></tr>
-<tr>
-<td>[usb.pcap](usb.pcap)</td>
-<td>93.99 kB</td><td>107af2dda6097d0f1e446ea375051899c900236279a4ff7fb5aca04708998c71</td>
-</tr>
-</table>
- 
+Attachment: [usb.pcap](usb.pcap) / 93.99 kB / 107af2dda6097d0f1e446ea375051899c900236279a4ff7fb5aca04708998c71
+
 ##Write-up
 
 **TL,DR:** 2 intertwined .ods downloads, with a riddle in the first one
