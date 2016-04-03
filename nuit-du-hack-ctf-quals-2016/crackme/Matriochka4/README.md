@@ -5,7 +5,7 @@
 **Solves:** 49 |
 **Description:**
 
-> _Description is missing, feel free to send a pull request_
+> You must solve steps [1](../Matriochka1/), [2](../Matriochka2/) and [3](../Matriochka3/) first.
 
 ## Write-up
 
