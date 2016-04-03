@@ -1,4 +1,3 @@
-```java
 package com.google.andorid.alarm;
 
 import android.annotation.TargetApi;
@@ -194,4 +193,3 @@ public class wake_up
     }
   }
 }
-```
