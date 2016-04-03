@@ -5,7 +5,7 @@
 **Solves:** 238 |
 **Description:**
 
-> _Description is missing, feel free to send a pull request_
+> You must solve [step 1](../Matriochka1/) first.
 
 ## Write-up
 
