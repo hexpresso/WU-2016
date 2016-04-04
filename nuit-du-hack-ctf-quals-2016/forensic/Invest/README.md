@@ -13,7 +13,9 @@ The given [pcap file](invest.pcapng) contains some internet traffic.
 Let's have a quick look :
 
 ```python
-$ p.sessions
+>>> from scapy.all import *
+>>> p = rdpcap('invest.pcapng')
+>>> p.sessions
 <bound method PacketList.sessions of <invest.pcap: TCP:1275 UDP:194 ICMP:118 Other:57>>
 ```
 
