@@ -24,8 +24,7 @@ Dans notre cas, les données utiles démarrent à 138.
 
 Nous écrivons un premier script pour voir à quoi ressemblent les premiers octets: le fichier BMP se remplit par le bas, l'artefact est donc sur la première ligne:
 
-```
-mitsurugi@mitsu:~/chall/inshack$ cat img.py 
+```python
 #! /usr/bin/python
 
 i=open("morser.bmp","ro")
@@ -41,7 +40,11 @@ for i in range(len(juicy)):
         out.append('\n')
 
 print ''.join(out)
+```
 
+Output :
+
+```
 mitsurugi@mitsu:~/chall/inshack$ ./img.py 
 3310003330003330
 0031100000000013
@@ -85,7 +88,9 @@ Le 0 semble bien pour correspondre à la séparation, on teste le 1 pour point e
 for i in range(len(juicy)):
     out.append(" .Y-"[ord(juicy[i])])
 ```
-et on relance:
+
+Et on relance:
+
 ```
 mitsurugi@mitsu:~/chall/inshack$ ./img.py 
 --.   ---   --- 
@@ -111,20 +116,25 @@ mitsurugi@mitsu:~/chall/inshack$ ./img.py
 -   -.    -.    
 -.--            
 ```
-c'est beaucoup mieux, mais certains séries de traits et points sont beaucoup trop longues:
+c'est beaucoup mieux, mais certaines séries de traits et points sont beaucoup trop longues:
 `--.-....-`
 
 ## Finalisation
-Après quelques réflexions, nous nous rendons compte que les lettres en morse ne font pas plus de 6 symboles, et que les lettres à moins de symboles sont paddées par des 0. Il suffit d'ajouter des espaces tous les 6 caractères (on en profite pour tout mettre sur une ligne):
-```
+Après quelques réflexions, nous nous rendons compte que les lettres en morse ne font pas plus de 6 symboles, et que les lettres à moins de symboles sont paddées par des 0. 
+Il suffit d'ajouter des espaces tous les 6 caractères (on en profite pour tout mettre sur une ligne):
+
+```python
 for i in range(len(juicy)):
     out.append(" .Y-"[ord(juicy[i])])
     if (i+1)%6==0:
         out.append(' ')
+```
 
+```
 mitsurugi@mitsu:~/chall/inshack$ ./img.py 
 --.    ---    ---    -..           .---   ---    -...   --..--        -.--   ---    ..-    .----. ...-   .             ..-.   ---    ..-    -.     -..           -      ....   .             ..-.   .-..   .-     --.           ---...        .-..   .....  -...   ..--.- ....-  -.     -..    ..--.- --     -----  .-.    .....  ...--  ..--.- ....-  .-.    ...--  ..--.- ..-.   ..-    -.     -.     -.--    
 ```
+
 Résolution:
 ```
 mitsurugi@mitsu:~/chall/inshack$ ./img.py | morse -d
@@ -133,6 +143,7 @@ G O O D     J O B ,   Y O U 'V E      F O U N  D     T  H E      F L A  G     : 
 Il y a des espaces en trop, mais nous comprenons le message :)
 Le 'x' minuscule nous indique qu'une lettre n'est pas décodée, avec l'image sous les yeux et le morse, nous voyons qu'il s'agit 
 du ..--.- qui correspond à underscore _
+
 Le flag pour valider est donc:
 ```
 L5B_4ND_M0R53_4R3_FUNNY
